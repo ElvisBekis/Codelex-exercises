@@ -2,8 +2,14 @@ package io.codelex.typesandvariables.practice;
 
 public class MoreVariablesAndPrinting {
     public static void main(String[] args) {
-        String myName, myEyes, myTeeth, myHair;
-        int myAge, myHeight, myWeight;
+        String myName;
+        String myEyes;
+        String myTeeth;
+        String myHair;
+
+        int myAge;
+        int myHeight;
+        int myWeight;
 
         myName = "Zed A. Shaw";
         myAge = 35;
