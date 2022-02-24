@@ -19,7 +19,7 @@ public class Ex_9 {
         float allSec = (hour * 3600) + (minute * 60) + second;
 
         float ms = distance / allSec;
-        float kmh = (distance/1000.0f) / (allSec/3600.0f); 
+        float kmh = ms / (1000.0f / 3600.0f);
         float mh = kmh / 1.609f;
 
 
