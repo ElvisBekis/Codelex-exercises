@@ -6,7 +6,8 @@ import java.math.BigDecimal;
 
 class Geometry {
     static double areaOfCircle(BigDecimal radius) {
-        throw new NoCodeWrittenException();
+        BigDecimal d = BigDecimal
+        return Math.PI * radius * radius;
     }
 
     static double areaOfRectangle(BigDecimal length, BigDecimal width) {
