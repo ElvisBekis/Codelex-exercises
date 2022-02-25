@@ -87,7 +87,7 @@ public class CalculateArea {
 
         // Display output
         System.out.println("The rectangle's area is "
-                + Geometry.areaOfTriangle(length, width));
+                + Geometry.areaOfRectangle(length, width));
     }
 
     public static void calculateTriangleArea() {
@@ -109,6 +109,6 @@ public class CalculateArea {
 
         // Display the triangle's area.
         System.out.println("The triangle's area is "
-                + Geometry.areaOfRectangle(base, height));
+                + Geometry.areaOfTriangle(base, height));
     }
 }
