@@ -1,11 +1,11 @@
 package io.codelex.classesandobjects.practice.exercises;
 
-public class Ex_7_Dog {
+public class Ex7Dog {
 
     String name;
-    String sex;
-    Ex_7_Dog father;
-    Ex_7_Dog mother;
+    Sex sex;
+    Ex7Dog father;
+    Ex7Dog mother;
 
     @Override
     public String toString() {
@@ -13,24 +13,27 @@ public class Ex_7_Dog {
                 ", sex = " + sex + " ";
     }
 
-    public Ex_7_Dog(String name, String sex, Ex_7_Dog father, Ex_7_Dog mother) {
+    public Ex7Dog(String name, Sex sex, Ex7Dog father, Ex7Dog mother) {
         this.name = name;
         this.sex = sex;
         assignParents(father, mother);
     }
 
 
-    public void assignParents(Ex_7_Dog father,Ex_7_Dog mother) {
+    public void assignParents(Ex7Dog father, Ex7Dog mother) {
         this.father = father;
         this.mother = mother;
     }
 
-    public boolean hasSameMother(Ex_7_Dog otherDog) {
-       return mother == otherDog.mother;
+    public boolean hasSameMother(Ex7Dog otherDog) {
+        if (mother == null) {
+            return null != otherDog.mother;
+        }
+        return mother == otherDog.mother;
     }
 
 
-    public Ex_7_Dog(String name, String sex) {
+    public Ex7Dog(String name, Sex sex) {
         this.name = name;
         this.sex = sex;
     }

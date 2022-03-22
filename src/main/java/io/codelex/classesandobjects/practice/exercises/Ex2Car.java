@@ -1,12 +1,14 @@
 package io.codelex.classesandobjects.practice.exercises;
 
-public class Ex_2_Car {
+public class Ex2Car {
 
-    public double startOdo;
-    public double endOdo;
-    public double liters;
+    private final double startOdo;
+    private double endOdo;
+    private double liters;
+    private final double GASHOG = 15.0;
+    private final double ECONOMYCAR = 5.0;
 
-    public Ex_2_Car(double startOdo) {
+    public Ex2Car(double startOdo) {
         this.startOdo = startOdo;
     }
 
@@ -21,12 +23,12 @@ public class Ex_2_Car {
     }
 
     public boolean gasHog() {
-        return calculateConsumption() > 15.0;
-    }
-    public boolean economyCar() {
-        return calculateConsumption() < 5.0;
+        return calculateConsumption() > GASHOG;
     }
 
+    public boolean economyCar() {
+        return calculateConsumption() < ECONOMYCAR;
+    }
 
 
 }

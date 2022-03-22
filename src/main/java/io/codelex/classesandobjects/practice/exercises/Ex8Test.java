@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-public class Ex_8_Test {
+public class Ex8Test {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
@@ -20,7 +20,7 @@ public class Ex_8_Test {
 
         System.out.print("Hom much money is in the account?: ");
         startingBalance = input.nextBigDecimal();
-        Ex_8_SavingsAccount balance = new Ex_8_SavingsAccount(startingBalance);
+        Ex8SavingsAccount balance = new Ex8SavingsAccount(startingBalance);
         System.out.print("Enter the annual interest rate: ");
         rate = input.nextBigDecimal();
         balance.setANNUAL_INTEREST_RATE(rate);
@@ -46,7 +46,6 @@ public class Ex_8_Test {
         System.out.println("Total withdrawn: " + dollar.format(totalWithdraw));
         System.out.println("Interest earned: " + dollar.format(interestEarned));
         System.out.println("Ending balance: " + dollar.format(balance.getBalance()));
-
 
 
     }

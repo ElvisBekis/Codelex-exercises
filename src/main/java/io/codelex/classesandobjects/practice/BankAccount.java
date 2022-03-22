@@ -16,11 +16,11 @@ public class BankAccount {
     }
 
     public final void deposit(double amount) {
-        balance = balance + amount;
+        balance += amount;
     }
 
     public final void withdraw(double amount) {
-        balance = balance - amount;
+        balance -= amount;
     }
 }
 

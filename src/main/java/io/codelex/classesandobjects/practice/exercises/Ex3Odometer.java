@@ -1,17 +1,17 @@
 package io.codelex.classesandobjects.practice.exercises;
 
-public class Ex_3_Odometer {
+public class Ex3Odometer {
 
-    public int MAX_MILEAGE = 999999;
+    private int MAX_MILEAGE = 999999;
 
-    public int KM_PER_L = 10;
+    private int KM_PER_L = 10;
 
-    int startOdo;
-    int mileage;
+    private int startOdo;
+    private int mileage;
 
-    private Ex_3_FuelGauge fuelGauge;
+    private Ex3FuelGauge fuelGauge;
 
-    public Ex_3_Odometer(int mileage, Ex_3_FuelGauge fuelGauge) {
+    public Ex3Odometer(int mileage, Ex3FuelGauge fuelGauge) {
         this.startOdo = mileage;
         this.mileage = mileage;
         this.fuelGauge = fuelGauge;

@@ -2,7 +2,7 @@ package io.codelex.classesandobjects.practice.exercises;
 
 import java.util.Scanner;
 
-public class Ex_2_LitersPerKilometer {
+public class Ex2LitersPerKilometer {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
@@ -17,7 +17,7 @@ public class Ex_2_LitersPerKilometer {
         System.out.print("Enter liters consumed: ");
         liters = scan.nextDouble();
 
-        Ex_2_Car car = new Ex_2_Car(startKilometers);
+        Ex2Car car = new Ex2Car(startKilometers);
         car.fillUp(endKilometers, liters);
 
         System.out.println("Liters per 100 kilometers are " + car.calculateConsumption());

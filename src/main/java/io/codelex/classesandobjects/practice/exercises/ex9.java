@@ -2,7 +2,7 @@ package io.codelex.classesandobjects.practice.exercises;
 
 import java.awt.*;
 
-public class ex_9 {
+public class ex9 {
 
 
     public static void main(String[] args) {

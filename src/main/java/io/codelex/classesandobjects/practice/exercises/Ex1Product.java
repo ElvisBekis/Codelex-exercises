@@ -1,10 +1,16 @@
 package io.codelex.classesandobjects.practice.exercises;
 
-public class Ex_1_Product {
+public class Ex1Product {
 
     String name;
     double priceAtStart;
     int amountAtStart;
+
+    public Ex1Product(String name, double priceAtStart, int amountAtStart) {
+        this.name = name;
+        this.priceAtStart = priceAtStart;
+        this.amountAtStart = amountAtStart;
+    }
 
     public double getPriceAtStart() {
         return priceAtStart;
@@ -22,16 +28,9 @@ public class Ex_1_Product {
         this.amountAtStart = amountAtStart;
     }
 
-    public Ex_1_Product(String name, double priceAtStart, int amountAtStart) {
-        this.name = name;
-        this.priceAtStart = priceAtStart;
-        this.amountAtStart = amountAtStart;
-    }
-
     public void printProduct() {
-        System.out.println(name + ", price " + priceAtStart +", amount " + amountAtStart);
+        System.out.println(name + ", price " + priceAtStart + ", amount " + amountAtStart);
     }
-
 
 
 }

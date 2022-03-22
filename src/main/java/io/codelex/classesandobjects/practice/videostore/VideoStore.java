@@ -5,13 +5,19 @@ public class VideoStore {
     private Video[] store;
 
     public int getStoreSize() {
-        if (store != null) return store.length;
-        else return 0;
+        if (store != null) {
+            return store.length;
+        } else {
+            return 0;
+        }
     }
 
     public Video getLastAdded() {
-        if (store != null) return store[store.length - 1];
-        else return null;
+        if (store != null) {
+            return store[store.length - 1];
+        } else {
+            return null;
+        }
     }
 
     public void addVideo(String name) {

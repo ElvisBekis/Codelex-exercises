@@ -1,12 +1,12 @@
 package io.codelex.classesandobjects.practice.exercises;
 
-public class Ex_3_FuelGauge {
+public class Ex3FuelGauge {
 
     final static int MAX_LITER_CAPACITY = 70;
     private int liters;
 
 
-    public Ex_3_FuelGauge(int liters) {
+    public Ex3FuelGauge(int liters) {
         if (liters <= MAX_LITER_CAPACITY) {
             this.liters = liters;
         } else {

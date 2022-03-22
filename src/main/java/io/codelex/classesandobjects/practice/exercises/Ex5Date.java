@@ -1,12 +1,12 @@
 package io.codelex.classesandobjects.practice.exercises;
 
-public class Ex_5_Date {
+public class Ex5Date {
 
-    String month;
-    int day;
-    int year;
+    private String month;
+    private int day;
+    private int year;
 
-    public Ex_5_Date(String month, int day, int year) {
+    public Ex5Date(String month, int day, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
