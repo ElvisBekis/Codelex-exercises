@@ -16,8 +16,7 @@ public class MultiplyByItself {
         long result = 1;
 
 
-
-        for (; n != 0; --n) {
+        for (int j = n; j != 0; j--) {
             result *= i;
         }
         System.out.println(result);

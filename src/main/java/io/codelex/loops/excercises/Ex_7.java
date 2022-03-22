@@ -34,10 +34,7 @@ public class Ex_7 {
         Scanner input = new Scanner(System.in);
         System.out.print("Roll again?" + " ");
         String n = input.next();
-        if (Objects.equals(n, "yes")) {
-            return true;
-        }
-        return false;
+        return Objects.equals(n, "yes");
     }
 }
 

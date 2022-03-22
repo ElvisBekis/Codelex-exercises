@@ -9,11 +9,11 @@ public class Ex_5 {
 
         String str;
         System.out.print("Please enter a String: ");
-        str = in.next();
+        str = in.next().toLowerCase();
 
         int digit = 0;
         for (int i = 0; i < str.length(); i++) {
-            switch (str.toLowerCase().charAt(i)) {
+            switch (str.charAt(i)) {
                 case 'a', 'b', 'c' -> digit = 2;
                 case 'd', 'e', 'f' -> digit = 3;
                 case 'g', 'h', 'i' -> digit = 4;
