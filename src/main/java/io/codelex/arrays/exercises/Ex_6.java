@@ -1,6 +1,7 @@
 package io.codelex.arrays.exercises;
 
 
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -15,16 +16,11 @@ public class Ex_6 {
 
         int[] myIntArray2 = myIntArray.clone();
 
-        myIntArray[9] = -7;
+        myIntArray[myIntArray.length - 1] = -7;
 
-        System.out.print("Array 1: ");
-        for (Integer i : myIntArray)
-            System.out.print(i + " ");
-
+        System.out.print("Array 1: " + Arrays.toString(myIntArray));
         System.out.println();
+        System.out.print("Array 2: " + Arrays.toString(myIntArray2));
 
-        System.out.print("Array 2: ");
-        for (Integer i : myIntArray2)
-            System.out.print(i + " ");
     }
 }

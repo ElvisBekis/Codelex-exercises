@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class TicTacToe {
 
-    private static char[][] board = new char[3][3];
+    private final static char[][] board = new char[3][3];
 
     public static void main(String[] args) {
 
@@ -13,14 +13,14 @@ public class TicTacToe {
 
     }
 
-    public static void initBoard() {
+    private static void initBoard() {
         // fills up the board with blanks
         for (int r = 0; r < 3; r++)
             for (int c = 0; c < 3; c++)
                 board[r][c] = ' ';
     }
 
-    public static void game() {
+    private static void game() {
         Scanner in = new Scanner(System.in);
         char p1 = 'X';
         char p2 = 'O';
@@ -81,7 +81,7 @@ public class TicTacToe {
     }
 
 
-    public static char isWinner(char[][] board) {
+    private static char isWinner(char[][] board) {
         for (int i = 0; i < 3; i++) {
             if (board[i][0] == board[i][1] && board[i][1] == board[i][2] && board[i][0] != ' ') {
                 return board[i][0];
@@ -101,7 +101,7 @@ public class TicTacToe {
         return ' ';
     }
 
-    public static boolean boardIsFull(char[][] board) {
+    private static boolean boardIsFull(char[][] board) {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 if (board[i][j] == ' ') {
@@ -113,7 +113,7 @@ public class TicTacToe {
     }
 
 
-    public static void displayBoard() {
+    private static void displayBoard() {
         System.out.println("  0  " + board[0][0] + "|" + board[0][1] + "|" + board[0][2]);
         System.out.println("    --+-+--");
         System.out.println("  1  " + board[1][0] + "|" + board[1][1] + "|" + board[1][2]);
