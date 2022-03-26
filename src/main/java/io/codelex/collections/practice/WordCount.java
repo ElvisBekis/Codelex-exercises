@@ -15,10 +15,11 @@ public class WordCount {
     public static void main(String[] args) throws IOException, URISyntaxException {
         final Path path = Paths.get(Histogram.class.getResource(file).toURI());
         List<String> lines = Files.readAllLines(path, charset);
-        int numOfLines = lines.size();
 
+        int numOfLines = lines.size();
         int numOfWords = 0;
         int numOfCharacters = 0;
+
         for (String line : lines) {
             String[] words = line.replace("'", " ").split("\\s+");
             numOfWords = numOfWords + words.length;
