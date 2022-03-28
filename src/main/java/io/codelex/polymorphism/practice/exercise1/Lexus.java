@@ -1,6 +1,6 @@
 package io.codelex.polymorphism.practice.exercise1;
 
-public class Lexus {
+public class Lexus implements BoostCar {
     private Integer currentSpeed = 0;
 
     public void speedUp() {
@@ -21,5 +21,12 @@ public class Lexus {
 
     public void startEngine() {
         System.out.println("Rrrrrrr.....");
+    }
+
+    @Override
+    public String toString() {
+        return "Lexus{" +
+                "currentSpeed=" + currentSpeed +
+                '}';
     }
 }
