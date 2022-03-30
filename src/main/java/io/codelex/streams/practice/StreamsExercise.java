@@ -1,9 +1,6 @@
 package io.codelex.streams.practice;
 
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -13,102 +10,152 @@ import java.util.stream.Stream;
  */
 public class StreamsExercise {
     public static List<Integer> returnSquareRoot(List<Integer> numbers) {
-        return null;
-                
-
+        return numbers.stream()
+                .mapToInt(Integer::valueOf)
+                .map(number -> (int) Math.sqrt(number))
+                .boxed()
+                .collect(Collectors.toList());
     }
 
     public static List<Integer> getAgeFromUsers(List<User> user) {
-        throw new UnsupportedOperationException();
+        return user.stream()
+                .map(User::getAge)
+                .collect(Collectors.toList());
     }
 
     public static List<Integer> getDistinctAges(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .map(User::getAge)
+                .distinct()
+                .collect(Collectors.toList());
     }
 
     public static List<User> getLimitedUserList(List<User> users, int limit) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .limit(limit)
+                .collect(Collectors.toList());
     }
 
     public static Integer countUsersOlderThen25(List<User> users) {
-        throw new UnsupportedOperationException();
+        return Math.toIntExact(users.stream()
+                .map(User::getAge)
+                .filter(n -> n > 25).count());
     }
 
     public static List<String> mapToUpperCase(List<String> strings) {
-        throw new UnsupportedOperationException();
+        return strings.stream()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
     }
 
     public static Integer sum(List<Integer> integers) {
-        throw new UnsupportedOperationException();
+        return integers.stream()
+                .mapToInt(Integer::valueOf)
+                .sum();
     }
 
     public static List<Integer> skip(List<Integer> integers, Integer toSkip) {
-        throw new UnsupportedOperationException();
+        return integers.stream()
+                .skip(toSkip)
+                .collect(Collectors.toList());
     }
 
     public static List<String> getFirstNames(List<String> names) {
-        throw new UnsupportedOperationException();
+        return names.stream()
+                .map(name -> name.replaceAll(" .*", ""))
+                .collect(Collectors.toList());
     }
 
     public static List<String> getDistinctLetters(List<String> names) {
-        throw new UnsupportedOperationException();
+        return names.stream()
+                .map(name -> name.split(""))
+                .flatMap(Arrays::stream).distinct()
+                .collect(Collectors.toList());
     }
 
 
     public static String separateNamesByComma(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .map(User::getName)
+                .collect(Collectors.joining(", "));
+
     }
 
     public static double getAverageAge(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .collect(Collectors.averagingDouble(User::getAge));
+
+
     }
 
     public static Integer getMaxAge(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream().max(Comparator.comparing(User::getAge))
+                .get()
+                .getAge();
+
+
     }
 
     public static Integer getMinAge(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream().min(Comparator.comparing(User::getAge))
+                .get()
+                .getAge();
     }
 
     public static Map<Boolean, List<User>> partionUsersByGender(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream().
+                collect(Collectors.groupingBy(User::isMale, Collectors.toList()));
     }
 
     public static Map<Integer, List<User>> groupByAge(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .collect(Collectors.groupingBy(User::getAge));
     }
 
     public static Map<Boolean, Map<Integer, List<User>>> groupByGenderAndAge(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .collect(Collectors.groupingBy(User::isMale, Collectors.groupingBy(User::getAge)));
     }
 
     public static Map<Boolean, Long> countGender(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .collect(Collectors.groupingBy(User::isMale, Collectors.counting()));
     }
 
     public static boolean anyMatch(List<User> users, int age) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .anyMatch(user -> user.getAge().equals(age));
     }
 
     public static boolean noneMatch(List<User> users, int age) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .noneMatch(user -> user.getAge().equals(age));
     }
 
     public static Optional<User> findAny(List<User> users, String name) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .filter(word -> word.getName().equals(name))
+                .findAny();
+
+
     }
 
     public static List<User> sortByAge(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .sorted(Comparator.comparing(User::getAge))
+                .collect(Collectors.toList());
     }
 
     public static Stream<Integer> getBoxedStream(IntStream stream) {
-        throw new UnsupportedOperationException();
+        return stream.boxed();
     }
 
     public static List<Integer> generateFirst10PrimeNumbers() {
-        throw new UnsupportedOperationException();
+        return IntStream.range(2, Integer.MAX_VALUE)
+                .filter(n -> isPrime(n))
+                .limit(10)
+                .boxed()
+                .collect(Collectors.toList());
     }
 
     public static boolean isPrime(int number) {
@@ -116,18 +163,28 @@ public class StreamsExercise {
     }
 
     public static List<Integer> generate10RandomNumbers() {
-        throw new UnsupportedOperationException();
+        return IntStream.range(0, Integer.MAX_VALUE)
+                .limit(10)
+                .boxed()
+                .collect(Collectors.toList());
     }
 
     public static User findOldest(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .max(Comparator.comparing(User::getAge))
+                .get();
     }
 
     public static int sumAge(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .mapToInt(User::getAge)
+                .sum();
+
     }
 
     public static IntSummaryStatistics ageSummaryStatistics(List<User> users) {
-        throw new UnsupportedOperationException();
+        return users.stream()
+                .mapToInt(User::getAge)
+                .summaryStatistics();
     }
 }
