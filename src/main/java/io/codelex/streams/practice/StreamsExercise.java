@@ -4,6 +4,7 @@ import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -12,7 +13,9 @@ import java.util.stream.Stream;
  */
 public class StreamsExercise {
     public static List<Integer> returnSquareRoot(List<Integer> numbers) {
-        throw new UnsupportedOperationException();
+        return null;
+                
+
     }
 
     public static List<Integer> getAgeFromUsers(List<User> user) {
