@@ -1,4 +1,5 @@
 package io.codelex.summary;
 
-public interface Item {
+public interface Item extends SellableThing {
+
 }
