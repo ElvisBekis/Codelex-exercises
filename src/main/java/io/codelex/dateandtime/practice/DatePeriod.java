@@ -3,33 +3,40 @@ package io.codelex.dateandtime.practice;
 import java.time.LocalDate;
 
 public class DatePeriod {
-    LocalDate start;
-    LocalDate end;
+    private LocalDate start;
+    private LocalDate end;
 
-    public DatePeriod(LocalDate start, LocalDate end) {
+    private DatePeriod(LocalDate start, LocalDate end) {
         this.start = start;
         this.end = end;
     }
-
-
-    public boolean datePeriodOverlap(DatePeriod secondPeriod) {
+    
+    private boolean datePeriodOverlap(DatePeriod secondPeriod) {
         return this.start.isBefore(secondPeriod.end) && secondPeriod.start.isBefore(this.end);
     }
 
-    public boolean datePeriodIncludes(DatePeriod secondPeriod) {
+    private boolean datePeriodIncludes(DatePeriod secondPeriod) {
         return this.start.isBefore(secondPeriod.start) && this.end.isAfter(secondPeriod.end)
                 || secondPeriod.start.isBefore(this.start) && secondPeriod.end.isAfter(this.end);
+    }
+
+    private boolean firstPeriodIncludesSecond(DatePeriod secondPeriod) {
+        return this.start.isBefore(secondPeriod.start) && this.end.isAfter(secondPeriod.end);
+    }
+
+    private boolean secondPeriodOverlapsFirst(DatePeriod secondPeriod) {
+        return this.start.isBefore(secondPeriod.end) && this.end.isAfter(secondPeriod.end);
     }
 
     public DatePeriod intersection(DatePeriod secondPeriod) {
         if (datePeriodOverlap(secondPeriod)) {
             if (datePeriodIncludes(secondPeriod)) {
-                if (this.start.isBefore(secondPeriod.start) && this.end.isAfter(secondPeriod.end)) {
+                if (firstPeriodIncludesSecond(secondPeriod)) {
                     return this;
                 } else {
                     return secondPeriod;
                 }
-            } else if (this.start.isBefore(secondPeriod.end) && this.end.isAfter(secondPeriod.end)) {
+            } else if (secondPeriodOverlapsFirst(secondPeriod)) {
                 return new DatePeriod(this.start, secondPeriod.end);
             } else {
                 return new DatePeriod(secondPeriod.start, this.end);
