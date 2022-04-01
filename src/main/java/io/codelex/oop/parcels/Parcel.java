@@ -37,12 +37,28 @@ public class Parcel implements Validatable {
         return isExpress;
     }
 
+    private boolean isDimensionSumWithinLimit() {
+        int DIMENSION_SIZE_SUM = 300;
+        return getXLength() + getYLength() + getZLength() <= DIMENSION_SIZE_SUM;
+    }
+
+    private boolean isSizeWithinLimit() {
+        int DIMENSION_SIZE = 30;
+        return getXLength() >= DIMENSION_SIZE && getYLength() >= DIMENSION_SIZE && getZLength() >= DIMENSION_SIZE;
+    }
+
+    private boolean isWeightWithinLimit() {
+        float WEIGHT_LIMIT = 30.0F;
+        float WEIGHT_LIMIT_EXPRESS = 15.0F;
+        return (getWeight() >= WEIGHT_LIMIT && !isExpress()) || (getWeight() >= WEIGHT_LIMIT_EXPRESS && isExpress());
+    }
+
     @Override
     public boolean validate() {
         boolean isValid = true;
-        if (getXLength() + getYLength() + getZLength() <= 300) {
-            if (getXLength() >= 30 && getYLength() >= 30 && getZLength() >= 30) {
-                if ((getWeight() >= 30.0 && !isExpress()) || (getWeight() >= 15 && isExpress())) {
+        if (isDimensionSumWithinLimit()) {
+            if (isSizeWithinLimit()) {
+                if (isWeightWithinLimit()) {
                     System.out.println("Package is valid!");
                 } else {
                     isValid = false;
