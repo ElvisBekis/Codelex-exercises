@@ -8,7 +8,7 @@ public class ScissorPaperStone {
         Random rand = new Random();
         boolean gameOver = false;
         Move playerMove = null;
-        Move computerMove;
+        Move computerMove = null;
         int numOfTrials = 0;
         int tieCount = 0;
         int playerWinCount = 0;
@@ -37,8 +37,7 @@ public class ScissorPaperStone {
             } while (!validInput);
 
             if (!gameOver) {
-                int random = rand.nextInt(3);
-                computerMove = Move.values()[random];
+                computerMove = Move.getRandomMove();
                 System.out.println("My turn: " + computerMove);
 
                 if (computerMove == playerMove) {
