@@ -12,20 +12,20 @@ public class Hangman {
                     "remote", "cookies", "terminology", "television", "cranberry", "tool",
                     "caterpillar", "juice", "watermelon", "laptop", "toe", "toad",
                     "aardvark", "capitol", "kitten", "sanguine", "meow", "burger"};
-    private final String CHOSENWORD;
-    private final ArrayList<Character> RIGHTGUESSES;
-    private final ArrayList<Character> WRONGGUESSES;
-    private final Scanner USERIN = new Scanner(System.in);
+    private final String chosenWord;
+    private final ArrayList<Character> rightGuesses;
+    private final ArrayList<Character> wrongGuesses;
+    private final Scanner userIn = new Scanner(System.in);
 
 
     public Hangman() {
         Random randIndex = new Random();
         int index = randIndex.nextInt(Hangman.WORDBANK.length);
-        this.CHOSENWORD = Hangman.WORDBANK[index];
-        this.RIGHTGUESSES = new ArrayList<>();
-        this.WRONGGUESSES = new ArrayList<>();
-        for (int i = 0; i < this.CHOSENWORD.length(); i++) {
-            this.RIGHTGUESSES.add('_');
+        this.chosenWord = Hangman.WORDBANK[index];
+        this.rightGuesses = new ArrayList<>();
+        this.wrongGuesses = new ArrayList<>();
+        for (int i = 0; i < this.chosenWord.length(); i++) {
+            this.rightGuesses.add('_');
         }
 
 
@@ -38,25 +38,25 @@ public class Hangman {
             System.out.println();
             //Print the correct guesses in the secret word
             System.out.print("Word: ");
-            for (Character rightguess : this.RIGHTGUESSES) System.out.print(rightguess + " ");
+            for (Character rightguess : this.rightGuesses) System.out.print(rightguess + " ");
             System.out.println();
             System.out.println();
             //Print the incorrect letters that have been guessed
             System.out.print("Misses: ");
-            for (Character wrongguess : this.WRONGGUESSES) System.out.print(wrongguess + " ");
+            for (Character wrongguess : this.wrongGuesses) System.out.print(wrongguess + " ");
             System.out.println();
             System.out.println();
 
             //Prompt and read the next guess
             System.out.print("Guess: ");
-            String guess = USERIN.nextLine();
+            String guess = userIn.nextLine();
 
             //Process the next guess
             handleGuess(guess.charAt(0));
 
         }
 
-        System.out.println("The word was: " + CHOSENWORD);
+        System.out.println("The word was: " + chosenWord);
         if (gameWon()) {
             System.out.println("YOU GOT IT!");
         } else {
@@ -65,26 +65,26 @@ public class Hangman {
     }
 
     private void handleGuess(char ch) {
-        int index = CHOSENWORD.indexOf(ch);
+        int index = chosenWord.indexOf(ch);
 
         if (index >= 0) {
             while (index >= 0) {
-                RIGHTGUESSES.set(index, ch);
-                index = CHOSENWORD.indexOf(ch, index + 1);
+                rightGuesses.set(index, ch);
+                index = chosenWord.indexOf(ch, index + 1);
             }
         } else {
-            WRONGGUESSES.add(ch);
+            wrongGuesses.add(ch);
         }
     }
 
     public boolean gameWon() {
         int countRight = 0;
         ArrayList<Character> charsCorrect = new ArrayList<>();
-        for (char c : CHOSENWORD.toCharArray()) {
+        for (char c : chosenWord.toCharArray()) {
             charsCorrect.add(c);
         }
         for (Character character : charsCorrect) {
-            if (RIGHTGUESSES.contains(character)) {
+            if (rightGuesses.contains(character)) {
                 countRight++;
             }
         }
@@ -96,7 +96,7 @@ public class Hangman {
 
     private boolean gameLost() {
 
-        return WRONGGUESSES.size() == 6;
+        return wrongGuesses.size() == 6;
 
     }
 
