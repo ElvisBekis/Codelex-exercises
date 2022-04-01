@@ -8,19 +8,19 @@ public class Exercise4 {
             System.out.println(
                     "The square root of " + d + " is " + root);
         } catch (NumberFormatException e) {
-            System.out.println("Be sure to enter a number.");
+            System.out.println(e + " Be sure to enter a number.");
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Enter number as first parameter.");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Result will be imaginary number.");
+            System.out.println(e + " Enter number as first parameter.");
+        } catch (NonPositiveNumberException e) {
+            System.out.println(e + " Result will be imaginary number.");
         }
 
     }
 
-    static double getInput(String s) {
+    static double getInput(String s) throws NonPositiveNumberException {
         double d = Double.parseDouble(s);
         if (d < 0) {
-            throw new IllegalArgumentException();
+            throw new NonPositiveNumberException();
         }
         return d;
     }
