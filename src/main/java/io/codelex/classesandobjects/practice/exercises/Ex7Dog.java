@@ -27,7 +27,7 @@ public class Ex7Dog {
 
     public boolean hasSameMother(Ex7Dog otherDog) {
         if (mother == null) {
-            return null != otherDog.mother;
+            return false;
         }
         return mother == otherDog.mother;
     }
