@@ -3,14 +3,14 @@ package io.codelex.dateandtime.practice;
 import java.time.LocalDate;
 
 public class DatePeriod {
-    private LocalDate start;
-    private LocalDate end;
+    private final LocalDate start;
+    private final LocalDate end;
 
-    private DatePeriod(LocalDate start, LocalDate end) {
+    DatePeriod(LocalDate start, LocalDate end) {
         this.start = start;
         this.end = end;
     }
-    
+
     private boolean datePeriodOverlap(DatePeriod secondPeriod) {
         return this.start.isBefore(secondPeriod.end) && secondPeriod.start.isBefore(this.end);
     }
