@@ -11,8 +11,8 @@ import java.util.*;
 public class FlightPlanner {
     private static final Charset CHARSET = Charset.defaultCharset();
     private static final String FILE = "/collections/flights.txt";
-    private static final Map<String, List<String>> FLIGHTS = new LinkedHashMap<>();
-    private static final List<String> ROUTE = new ArrayList<>();
+    private static final Map<String, List<String>> flights = new LinkedHashMap<>();
+    private static final List<String> route = new ArrayList<>();
 
 
     public static void main(String[] args) throws IOException, URISyntaxException {
@@ -36,22 +36,22 @@ public class FlightPlanner {
                 if (!getCityList().contains(currentCity)) {
                     System.out.println("Try again!");
                 } else {
-                    FLIGHTS.get(currentCity).forEach(System.out::println);
-                    ROUTE.add(currentCity);
+                    destinationList(currentCity).forEach(System.out::println);
+                    addCity(currentCity);
                     while (true) {
                         System.out.println("Enter City you want to go to: ");
                         String nextCity = input.nextLine();
-                        if (!FLIGHTS.get(currentCity).contains(nextCity)) {
+                        if (!destinationList(currentCity).contains(nextCity)) {
                             System.out.println("Try again!");
                         } else {
                             if (startCity.equals(nextCity)) {
-                                ROUTE.add(nextCity);
-                                ROUTE.forEach(System.out::println);
+                                addCity(nextCity);
+                                route.forEach(System.out::println);
                                 outerLoop = false;
                                 break;
                             }
-                            FLIGHTS.get(nextCity).forEach(System.out::println);
-                            ROUTE.add(nextCity);
+                            destinationList(nextCity).forEach(System.out::println);
+                            addCity(nextCity);
                             currentCity = nextCity;
                         }
                     }
@@ -68,12 +68,20 @@ public class FlightPlanner {
             String[] splitText = lines.split("\\->");
             String fromCity = splitText[0].trim();
             String toCity = splitText[1].trim();
-            FLIGHTS.computeIfAbsent(fromCity, d -> new ArrayList<>()).add(toCity);
+            flights.computeIfAbsent(fromCity, d -> new ArrayList<>()).add(toCity);
         }
     }
 
     private static Set<String> getCityList() {
-        return FLIGHTS.keySet();
+        return flights.keySet();
     }
-    
+
+    private static void addCity(String city) {
+        route.add(city);
+    }
+
+    private static List<String> destinationList(String city) {
+        return flights.get(city);
+    }
+
 }
