@@ -9,10 +9,10 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class FlightPlanner {
-    private static final Charset charset = Charset.defaultCharset();
-    private static final String file = "/collections/flights.txt";
-    private static final Map<String, List<String>> flights = new LinkedHashMap<>();
-    private static final List<String> route = new ArrayList<>();
+    private static final Charset CHARSET = Charset.defaultCharset();
+    private static final String FILE = "/collections/flights.txt";
+    private static final Map<String, List<String>> FLIGHTS = new LinkedHashMap<>();
+    private static final List<String> ROUTE = new ArrayList<>();
 
 
     public static void main(String[] args) throws IOException, URISyntaxException {
@@ -36,22 +36,22 @@ public class FlightPlanner {
                 if (!getCityList().contains(currentCity)) {
                     System.out.println("Try again!");
                 } else {
-                    flights.get(currentCity).forEach(System.out::println);
-                    route.add(currentCity);
+                    FLIGHTS.get(currentCity).forEach(System.out::println);
+                    ROUTE.add(currentCity);
                     while (true) {
                         System.out.println("Enter City you want to go to: ");
                         String nextCity = input.nextLine();
-                        if (!flights.get(currentCity).contains(nextCity)) {
+                        if (!FLIGHTS.get(currentCity).contains(nextCity)) {
                             System.out.println("Try again!");
                         } else {
                             if (startCity.equals(nextCity)) {
-                                route.add(nextCity);
-                                route.forEach(System.out::println);
+                                ROUTE.add(nextCity);
+                                ROUTE.forEach(System.out::println);
                                 outerLoop = false;
                                 break;
                             }
-                            flights.get(nextCity).forEach(System.out::println);
-                            route.add(nextCity);
+                            FLIGHTS.get(nextCity).forEach(System.out::println);
+                            ROUTE.add(nextCity);
                             currentCity = nextCity;
                         }
                     }
@@ -61,20 +61,19 @@ public class FlightPlanner {
     }
 
     private static void getFlights() throws IOException, URISyntaxException {
-        final Path path = Paths.get(Histogram.class.getResource(file).toURI());
-        List<String> text = Files.readAllLines(path, charset);
+        final Path path = Paths.get(Histogram.class.getResource(FILE).toURI());
+        List<String> text = Files.readAllLines(path, CHARSET);
 
         for (String lines : text) {
             String[] splitText = lines.split("\\->");
             String fromCity = splitText[0].trim();
             String toCity = splitText[1].trim();
-            flights.computeIfAbsent(fromCity, d -> new ArrayList<>()).add(toCity);
+            FLIGHTS.computeIfAbsent(fromCity, d -> new ArrayList<>()).add(toCity);
         }
     }
 
     private static Set<String> getCityList() {
-        return flights.keySet();
+        return FLIGHTS.keySet();
     }
-
-
+    
 }

@@ -8,7 +8,7 @@ public class Exercise4 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Set<String> names = new HashSet<>();
-        String name = null;
+        String name;
         System.out.println("Enter name: ");
         while ((name = input.nextLine()).length() > 0) {
             System.out.println("Enter name: ");

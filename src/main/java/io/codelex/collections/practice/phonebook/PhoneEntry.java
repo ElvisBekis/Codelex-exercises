@@ -1,8 +1,8 @@
 package io.codelex.collections.practice.phonebook;
 
 public class PhoneEntry {
-    String name;
-    String number;
+    private final String name;
+    private final String number;
 
     public PhoneEntry(String name, String number) {
         this.name = name;
