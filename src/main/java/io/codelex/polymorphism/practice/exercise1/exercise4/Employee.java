@@ -1,4 +1,4 @@
-package io.codelex.polymorphism.practice.exercise4;
+package io.codelex.polymorphism.practice.exercise1.exercise4;
 
 public class Employee extends StaffMember {
     protected String socialSecurityNumber;
@@ -26,6 +26,7 @@ public class Employee extends StaffMember {
     //-----------------------------------------------------------------
     // Returns the pay rate for this employee.
     //-----------------------------------------------------------------
+    @Override
     public double pay() {
         return payRate;
     }

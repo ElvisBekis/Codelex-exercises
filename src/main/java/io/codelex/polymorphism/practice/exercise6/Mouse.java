@@ -29,7 +29,7 @@ public class Mouse extends Mammal {
     public String toString() {
         return getType() + "["
                 + getName() + ", "
-                + format.format(getWeight()) + ", "
+                + FORMAT.format(getWeight()) + ", "
                 + getRegion() + ", "
                 + getFoodEaten() + "]";
     }

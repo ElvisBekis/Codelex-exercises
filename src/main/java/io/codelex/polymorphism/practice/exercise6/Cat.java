@@ -17,9 +17,7 @@ public class Cat extends Feline {
     @Override
     public void eat(String food) {
         String[] splitFood = food.split("\\s+");
-        if (splitFood[0].equals("Vegetables")) {
-            setFoodEaten(getFoodEaten() + Integer.parseInt(splitFood[1]));
-        } else if (splitFood[0].equals("Meat")) {
+        if (splitFood[0].equals("Vegetables") || splitFood[0].equals("Meat")) {
             setFoodEaten(getFoodEaten() + Integer.parseInt(splitFood[1]));
         } else {
             System.out.println("There is not such food!");
@@ -31,7 +29,7 @@ public class Cat extends Feline {
         return getType() + "["
                 + getName() + ", "
                 + breed + ", "
-                + format.format(getWeight()) + ", "
+                + FORMAT.format(getWeight()) + ", "
                 + getRegion() + ", "
                 + getFoodEaten() + "]";
     }

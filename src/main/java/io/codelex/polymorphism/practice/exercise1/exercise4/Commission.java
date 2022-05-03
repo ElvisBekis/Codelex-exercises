@@ -1,4 +1,4 @@
-package io.codelex.polymorphism.practice.exercise4;
+package io.codelex.polymorphism.practice.exercise1.exercise4;
 
 public class Commission extends Hourly {
 
@@ -14,6 +14,7 @@ public class Commission extends Hourly {
         totalSales += sale;
     }
 
+    @Override
     public double pay() {
         double payment = super.pay() + commissionRate * totalSales;
         totalSales = 0;

@@ -1,4 +1,4 @@
-package io.codelex.polymorphism.practice.exercise4;
+package io.codelex.polymorphism.practice.exercise1.exercise4;
 
 abstract public class StaffMember {
     protected String name;

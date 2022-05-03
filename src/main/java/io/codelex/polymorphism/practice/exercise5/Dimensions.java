@@ -11,9 +11,17 @@ public enum Dimensions {
     A6(10),
     A7(5);
 
-    public int cost;
+    private int cost;
 
     private Dimensions(int cost) {
+        this.cost = cost;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
         this.cost = cost;
     }
 }

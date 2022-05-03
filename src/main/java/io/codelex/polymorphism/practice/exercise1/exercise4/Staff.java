@@ -1,4 +1,4 @@
-package io.codelex.polymorphism.practice.exercise4;
+package io.codelex.polymorphism.practice.exercise1.exercise4;
 
 public class Staff {
     StaffMember[] staffList;

@@ -8,7 +8,7 @@ public abstract class Animal {
     private final String type;
     private final double weight;
     private Integer foodEaten = 0;
-    DecimalFormat format = new DecimalFormat("#.###");
+    DecimalFormat FORMAT = new DecimalFormat("#.###");
 
     public Animal(String type, String name, double weight) {
         this.type = type;
@@ -45,7 +45,7 @@ public abstract class Animal {
     public String toString() {
         return type + "["
                 + name + ", "
-                + format.format(weight) + ", "
+                + FORMAT.format(weight) + ", "
                 + foodEaten + "]";
     }
 }

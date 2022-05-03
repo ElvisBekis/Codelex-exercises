@@ -1,4 +1,4 @@
-package io.codelex.polymorphism.practice.exercise4;
+package io.codelex.polymorphism.practice.exercise1.exercise4;
 
 public class Executive extends Employee {
     private double bonus;
@@ -23,6 +23,7 @@ public class Executive extends Employee {
     // Computes and returns the pay for an executive, which is the
     // regular employee payment plus a one-time bonus.
     //-----------------------------------------------------------------
+    @Override
     public double pay() {
         double payment = super.pay() + bonus;
         bonus = 0;
